@@ -1,0 +1,49 @@
+@media (max-width: 768px) {
+  .ant-table thead th {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 2px solid gray;
+    margin-bottom: 10px;
+  }
+
+  .ant-table thead td {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8px 16px;
+    border-bottom: none;
+  }
+  .ant-table tbody tr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 2px solid gray;
+    margin-bottom: 10px;
+  }
+
+  .ant-table tbody td {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8px 16px;
+    border-bottom: none;
+  }
+
+  .ant-table tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}

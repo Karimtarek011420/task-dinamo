@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Table, Button, Modal, Form, Input, notification, Space } from "antd";
 import { fetchPosts, updatePost, deletePost } from "../services/api";
 import { Post } from "../types/post";
+import "./table.css";
 
 const PostTable = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -72,11 +73,13 @@ const PostTable = () => {
       title: "Title",
       dataIndex: "title",
       key: "title",
+      render: (text: string) => <span data-label="Title">{text}</span>,
     },
     {
       title: "Body",
       dataIndex: "body",
       key: "body",
+      render: (text: string) => <span data-label="Body">{text}</span>,
     },
     {
       title: "Actions",
@@ -96,12 +99,14 @@ const PostTable = () => {
 
   return (
     <>
-      <Table
-        dataSource={posts}
-        columns={columns}
-        rowKey="id"
-        pagination={{ pageSize: 5 }}
-      />
+      <div className="responsive-table" style={{ textAlign: "center" }}>
+        <Table
+          dataSource={posts}
+          columns={columns}
+          rowKey="id"
+          pagination={{ pageSize: 5 }}
+        />
+      </div>
       {isModalVisible && (
         <Modal
           title="Edit Post"
