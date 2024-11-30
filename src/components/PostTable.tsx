@@ -9,7 +9,6 @@ const PostTable = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [form] = Form.useForm();
 
-  // Fetch posts on mount
   useEffect(() => {
     fetchPosts()
       .then((response) => setPosts(response.data))
@@ -21,14 +20,12 @@ const PostTable = () => {
       );
   }, []);
 
-  // Open edit modal with selected post data
   const openEditModal = (post: Post) => {
     setEditingPost(post);
     form.setFieldsValue(post);
     setIsModalVisible(true);
   };
 
-  // Handle post deletion
   const handleDelete = (id: number) => {
     deletePost(id)
       .then(() => {
@@ -43,7 +40,6 @@ const PostTable = () => {
       );
   };
 
-  // Handle post update
   const handleUpdate = (values: { title: string; body: string }) => {
     if (editingPost) {
       updatePost(editingPost.id, values)
@@ -65,14 +61,12 @@ const PostTable = () => {
     }
   };
 
-  // Close edit modal
   const closeEditModal = () => {
     setIsModalVisible(false);
     setEditingPost(null);
     form.resetFields();
   };
 
-  // Define table columns with proper types
   const columns = [
     {
       title: "Title",
